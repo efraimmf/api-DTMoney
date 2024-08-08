@@ -13,7 +13,11 @@ export class AppService {
     }
 
     async getAllTransactions(){
-      const transactions = await this.prismaService.transaction.findMany();
+      const transactions = await this.prismaService.transaction.findMany({
+        orderBy: {
+          createdAt: 'asc',
+        }
+      });
       return transactions;
     }
 

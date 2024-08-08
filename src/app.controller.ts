@@ -13,25 +13,25 @@ export class AppController {
     return transaction;
   }
 
-  @Get('/transactions')
+  @Get('/transaction')
   async getAllTransactions(){
     const transactions = await this.appService.getAllTransactions();
     return transactions;
   }
 
-  @Get('/transactions/:title')
+  @Get('/transaction/:title')
   async getTransactionByTitle(@Param('title') title: string) {
     const transaction = await this.appService.getTransactionByTitle(title);
     return transaction;
   }
 
-  @Put('/transactions/:id')
+  @Put('/transaction/:id')
   async updateTransaction(@Param('id') id: string, @Body() data: UpdateTransactionDto) {
     const transaction = await this.appService.updateTransaction(id, data);
     return transaction;
   }
 
-  @Delete('/transactions/:id')
+  @Delete('/transaction/:id')
   async deleteTransaction(@Param('id') id: string) {
     const transaction = await this.appService.deleteTransaction(id);
     return transaction;
